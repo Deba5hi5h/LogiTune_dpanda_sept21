@@ -1,0 +1,68 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Events for reporting product state changes to the cloud.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 27 March 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+import "cloud_device_structures.proto";
+
+option java_package = "com.logitech.vc.raiden.proto.device.messages";
+
+
+/**
+ * Event for when the product state has changed in some way.
+ * This includes any firmware update changes or if the expected/
+ * actual device counts have changed.
+ */
+message LRProductUpdatedEvent {
+
+	/**
+	 * (REQUIRED) ISO date/time String. This is the timestamp since 
+	 * the last organization information was received from the cloud.
+	 */
+	string org_info_timestamp = 1;
+
+	/**
+	 * (REQUIRED) ISO date/time String. This is the timestamp since 
+	 * the last organization policy was received from the cloud.
+	 */
+	string org_policy_timestamp = 2;
+
+	/**
+	 * (REQUIRED) ISO date/time String. This is the timestamp since 
+	 * the last room information was received from the cloud.
+	 */
+	string room_info_timestamp = 3;
+
+	/**
+	 * (REQUIRED) ISO date/time String. This is the timestamp since 
+	 * the last room policy was received from the cloud.
+	 */
+	string room_policy_timestamp = 4;
+
+	/**
+	 * (REQUIRED) Snapshot of each product currently connected to
+	 * the host.
+	 */
+	repeated LRProductSnapshot snapshots = 5;
+}

@@ -1,0 +1,84 @@
+<!-- 
+***********************************************************************
+*** This script will help to display the captured image				***
+*** in a browser for subjective comparison.							***
+*** When images are captured ensure to:								***
+***    place them all in a folder based on the Language number.		***
+***    all the images in the folder needs to be named appropriately ***
+***    e.g. Equalizer, DeviceNmae									***
+***********************************************************************
+//-->
+
+<HTML>
+<HEAD>
+<TITLE>Scheduler App Localization</TITLE>
+</HEAD>
+<STYLE>
+h1 {text-align:center}
+h3 {font-size:120%; text-align:center}
+</STYLE>
+<BODY>
+<br>
+<br>
+<!-- 
+***********************************************
+*** Change the Heading in the "h1" section. ***
+***********************************************
+//-->
+<h1>Scheduler App Screenshots</h1>
+<h1>Coily 1.13.94</h1>
+<h1>Scheduler App 0.18.39</h1>
+<br>
+<br>
+<SCRIPT Language="JavaScript">
+
+<!-- ***************************************************************
+<!-- Change the list in columnNames to get right Column Heading. ***
+<!-- ***************************************************************
+var columnNames = ['Screen', 'French', 'German', 'English', 'Italian', 'Portuguese', 'Spanish']
+var cn_length = columnNames.length
+
+<!-- ****************************************************************
+<!-- Change the list in left Column Value what it represents.     ***
+<!-- List all the values and it will create equal number of rows. ***
+<!-- ****************************************************************
+var leftColumnValue = ['Home', 'Initialising', 'BookDeskViaQR', 'PinPage', 'YouNeedReservation',
+    'AnonymousWalkInSessionCheckingYouIn', 'AnonymousWalkInSessionCheckingYouInLearnMore', 'AnonymousWalkInSessionCheckedIn', 'AnonymousWalkInSessionFeelLikeHome', 'AnonymousWalkInSessionMakeDeskPersonal', 'WalkInSessionIsOver',
+    'IdentifiedWalkInSessionCheckingYouIn', 'IdentifiedWalkInSessionCheckingYouInLearnMore', 'IdentifiedWalkInSessionCheckedIn', 'IdentifiedWalkInSessionWelcomeMessage',
+    'EventDetails', 'EventDetails1', 'EventDetails2', 'EventDetails3', 'EventDetails4', 'AuthenticatedPagePrivacyModeON', 'AuthenticatedPagePrivacyModeONv2',
+    'LaptopDisconnectedAwayPicker', 'AwayMessage', 'BlockFromReusingTheDesk',
+    'OngoingReservation', 'ReservationDelay1', 'ReservationDelay10', 'ReservationDelay60', 'ReservationDelay61', 'ReservationDelay151',
+    'CheckingYouInBooked', 'ErrorYouCantUseThisDesk', 'ErrorDeskIsAlreadyReserved', 'CheckInViaTuneMobile', 'NoNetworkConnection',
+    'CenterNotification', 'CenterNotificationMessage', 'CountdownMessage', 'SessionIsOverV3', 'AlreadyHaveASession1', 'AlreadyHaveASession2']
+var lcv_length = leftColumnValue.length
+
+<!-- ***************************************************************
+<!-- Change the image extension here e.g. .jpg, .png, .bmp.      ***
+<!-- ***************************************************************
+var imageExtension = '.jpg'
+
+
+<!-- Creating table      ***
+
+document.write('<table border="1" cellspacing="1" cellpadding="5">')
+
+document.write('<tr>')
+for (var cn = 0; cn < cn_length; ++cn) {
+	document.write('<td><h3>' + columnNames[cn] + '</h3></td>')
+	}
+document.write('</tr>')
+   
+for (var lcv = 0; lcv < lcv_length; ++lcv) {
+	document.write('<tr>')
+	document.write('<td>' + leftColumnValue[lcv] +' </td>')
+	for (var cn = 1; cn < cn_length; ++cn) {
+		document.write('<td><img style="width: 480px;" src="./' + columnNames[cn] + '/' + leftColumnValue[lcv] + imageExtension + '"></td>')
+		}
+	document.write('</tr>')	
+	}
+document.write('</table>')	
+
+//-->
+</SCRIPT>
+</BODY>
+</HTML>

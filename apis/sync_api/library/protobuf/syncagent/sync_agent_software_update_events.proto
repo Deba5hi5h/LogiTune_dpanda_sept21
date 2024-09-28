@@ -1,0 +1,49 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Event messages dispatched by the AppHandler when a software
+// update is available.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 1 April 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+option java_package = "com.logitech.vc.syncagent.proto.device.messages";
+
+import "sync_agent_software_update_structures.proto";
+
+
+/**
+ * Event message describing the current state of the Sync
+ * software. This includes the current update state, the 
+ * current version installed, the version being updated to if
+ * applicable, and the status of the last update.
+ *
+ * This event will be dispatched by the app handler when the app 
+ * handler starts or when the software udpate state has changed.
+ */
+message LSASoftwareUpdateReportEvent {
+
+	/**
+	 * (REQUIRED) Report describing the current state of the 
+	 * software.
+	 */
+	LSASoftwareUpdateReport report = 1;
+}

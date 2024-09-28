@@ -1,0 +1,113 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Request and response messages for products and devices 
+// including checking for firmware updates.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 30 April 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+import "common.proto";
+import "product_state_structures.proto";
+
+option java_package = "com.logitech.vc.raiden.proto.device.messages";
+
+
+/**
+ * Message for checking if a firmware update is available for a
+ * single product or for all connected products. If desired, 
+ * a firmware update can be initiated immediately if one is
+ * found to be available.
+ *
+ * This should be followed by a LRProductUpdatedEvent event
+ * message.
+ *
+ * EXPECTED RESPONSE
+ * LRCheckForProductUpdateResponse
+ */
+message LRCheckForProductUpdateRequest {
+
+	/**
+	 * (OPTIONAL) If true, a firmware update will initiate 
+	 * immediately if an update is available. Regardless, a 
+	 * product snapshot  will be returned with the latest 
+	 * available firmware. By default, this will be false if a
+	 * value is not provided.
+	 */
+	bool update_now = 1;
+
+	/**
+	 * (OPTIONAL) The UID of the product to check for a
+	 * firmare update. If a UID and product model is not
+	 * provided, then all products will be checked for a
+	 * firmware upaate. If update_now is also true, then a 
+	 * firmware update will be initiated for all applicable
+	 * products.
+	 */
+	string product_uuid = 2;
+
+	/**
+	 * (OPTIONAL) The model of the product to check for an
+	 * update. This must be provided if a product UID is
+	 * given. If a UID and product model is not provided, then
+	 * all products will be checked for a firmware update. If
+	 * update_now is also true, then a firmware update will be
+	 * initiated for all applicable products.
+	 */
+	Product.Model product_model = 3;
+
+	/**
+	 * (REQUIRED) Expiration time set by Raiden for this
+	 * request. This is the number of milliseconds since the
+	 * epoch.
+	 */
+	uint64 expiration_millis = 4;
+
+	/**
+	 * (OPTIONAL) The interval the middleware should use to
+	 * report updates to the cloud. If this is 0, then the 
+	 * default interval as specified by the middleware will
+	 * be used.
+	 */
+	uint32 reporting_interval_seconds = 5;
+}
+
+/**
+ * Response message for LRCheckForProductUpdateRequest. If any
+ * errors occurred that prevented the request from being 
+ * fulfilled, then the errors field will be set and the
+ * success field will be set to false.
+ */
+message LRCheckForProductUpdateResponse {
+
+	/**
+     * (OPTIONAL) If any errors occurred while processing the
+     * request, then this field should be set accordingly.
+     */
+	repeated Error errors = 1;
+
+	/**
+	 * (REQUIRED) True if the middleware has successfully
+	 * processed the request. This may be true even if the
+	 * errors field has been set.
+	 */
+	bool success = 2;
+}

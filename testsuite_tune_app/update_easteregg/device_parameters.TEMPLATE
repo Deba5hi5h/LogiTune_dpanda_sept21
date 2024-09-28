@@ -1,0 +1,458 @@
+'''
+Copy this file and change its extension from .TEMPLATE to .py
+'''
+
+from apps.tune.device_parameters_utilities import TuneEnv, Device, Languages, LanguageUpdate
+
+
+tune_env = TuneEnv.qa
+is_acroname_available = False
+
+"""
+    H750e Mono
+    baseline_device_version='1.31.0',
+    target_device_version='1.32.0',
+"""
+bomberman_mono = Device(
+    device_name='H570e Mono',
+    ota_api_product_name='BombermanMono',
+    baseline_device_version='1.31.0',
+    target_device_version='1.32.0',
+    repeats=5,
+)
+
+"""
+    H750e Stereo
+    baseline_device_version='1.31.0',
+    target_device_version='1.32.0',
+"""
+bomberman_stereo = Device(
+    device_name='H570e Stereo',
+    ota_api_product_name='BombermanStereo',
+    baseline_device_version='1.31.0',
+    target_device_version='1.32.0',
+    repeats=5,
+)
+
+
+"""
+    Brio 4K
+    baseline_device_version='2.0.56',
+    target_device_version='2.0.58',
+    baseline_eeprom_version='1.18',
+    target_eeprom_version='1.18',
+"""
+brio4k = Device(
+    device_name='Brio',
+    ota_api_product_name='Brio',
+    baseline_device_version='2.0.56',
+    target_device_version='2.0.58',
+    baseline_eeprom_version='1.18',
+    target_eeprom_version='1.18',
+    repeats=5,
+)
+
+
+"""
+    C930e
+    baseline_device_version='8.0.928',
+    target_device_version='8.0.929',
+"""
+c930e = Device(
+    device_name='C930e',
+    ota_api_product_name='C930E',
+    baseline_device_version='8.0.928',
+    target_device_version='8.0.929',
+    repeats=5,
+)
+
+
+"""
+    Brio 100/101/105
+    baseline_device_version='1.1.4',
+    target_device_version='1.1.4',
+"""
+cezanne = Device(
+    device_name='Brio 100',
+    ota_api_product_name='Cezanne',
+    baseline_device_version='1.1.4',
+    target_device_version='1.1.4',
+    repeats=5,
+)
+
+
+"""
+    Brio 300/301/305
+    baseline_device_version='3.0.9020',
+    target_device_version='3.0.21',
+"""
+degas = Device(
+    device_name='Brio 305',
+    ota_api_product_name='Degas',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=5,
+)
+
+
+"""
+    Brio 500/501/505
+    baseline_device_version='1.0.225',
+    target_device_version='1.0.234',
+"""
+gauguin = Device(
+    device_name='Brio 505',
+    ota_api_product_name='Gauguin',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+
+"""
+    Brio 700/701/705
+    baseline_device_version='1.0.63',
+    target_device_version='1.0.64',
+"""
+matisse = Device(
+    device_name='MX Brio',
+    ota_api_product_name='Matisse',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+
+"""
+    Litra Beam
+    baseline_device_version='1.2.69',
+    target_device_version='1.2.70',
+"""
+litra_beam = Device(
+    device_name='Litra Beam',
+    ota_api_product_name='LitraBeam',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+
+"""
+    Logi Dock
+    baseline_device_version='1.0.94',
+    target_device_version='1.0.97',
+"""
+logi_dock = Device(
+    device_name='Logi Dock',
+    ota_api_product_name='Qbert',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+"""
+    Zone 300
+    baseline_device_version='0.8.1',
+    target_device_version='0.8.2',
+"""
+zone_300 = Device(
+    device_name='Zone 300',
+    ota_api_product_name='KrullRetail',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+"""
+    Zone 301
+    baseline_device_version='0.8.1',
+    target_device_version='0.8.2',
+"""
+zone_301 = Device(
+    device_name='Zone 301',
+    ota_api_product_name='KrullAmazon',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+"""
+    Zone 305
+    baseline_device_version='0.8.1',
+    target_device_version='0.8.2',
+"""
+zone_305 = Device(
+    device_name='Zone 305',
+    ota_api_product_name='Krull',
+    baseline_device_version='0.8.36',
+    baseline_dongle_version='2.48.1',
+    target_device_version='0.8.37',
+    target_dongle_version='91.48.1',
+    repeats=5,
+)
+
+
+"""
+    Zone 750
+    baseline_device_version='1.36.0',
+    target_device_version='1.39.0',
+"""
+zone_750 = Device(
+    device_name='Zone 750',
+    ota_api_product_name='Zone750',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone 900
+    baseline_device_version='1.86.1',
+    baseline_dongle_version='1.86.1',
+    target_device_version='1.87.0',
+    target_dongle_version='1.87.0',
+"""
+zone_900 = Device(
+    device_name='Zone 900',
+    ota_api_product_name='Zone900',
+    baseline_device_version='',
+    baseline_dongle_version='',
+    target_device_version='',
+    target_dongle_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone 950
+    baseline_device_version='1.3.26',
+    baseline_tahiti_version='4.24.4.45',
+    baseline_dongle_version='1.80.1',
+    target_device_version='1.3.124',
+    target_tahiti_version='4.24.4.48',
+    target_dongle_version='4.80.1',
+"""
+zone_950 = Device(
+    device_name='Zone 950',
+    ota_api_product_name='Cybermorph',
+    baseline_device_version='',
+    baseline_tahiti_version='',
+    baseline_dongle_version='',
+    target_device_version='',
+    target_tahiti_version='',
+    target_dongle_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone True Wireless
+    baseline_device_version='5.07',
+    baseline_dongle_version='1.87.6',
+    target_device_version='5.08',
+    target_dongle_version='1.87.7',
+"""
+zone_true_wireless = Device(
+    device_name='Zone True Wireless',
+    ota_api_product_name='Zaxxon',
+    baseline_device_version='',
+    baseline_dongle_version='',
+    target_device_version='',
+    target_dongle_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone Vibe 100
+    baseline_device_version='1.3.0',
+    target_device_version='1.4.0',
+"""
+zone_vibe_100 = Device(
+    device_name='Zone Vibe 100',
+    ota_api_product_name='ZoneVibe100',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone Vibe 125
+    baseline_device_version='1.3.0',
+    baseline_dongle_version='2.7.0',
+    target_device_version='1.4.0',
+    target_dongle_version='2.8.0',
+"""
+zone_vibe_125 = Device(
+    device_name='Zone Vibe 125',
+    ota_api_product_name='Enduro',
+    baseline_device_version='',
+    baseline_dongle_version='',
+    target_device_version='',
+    target_dongle_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone Vibe 130
+    baseline_device_version='1.3.0',
+    baseline_dongle_version='2.7.0',
+    target_device_version='1.4.0',
+    target_dongle_version='2.8.0',
+    dongle_address='046D_0AF0_2207MH01ECL86EE13A6D3744',
+"""
+zone_vibe_130 = Device(
+    device_name='Zone Vibe 130',
+    ota_api_product_name='ZoneVibe130',
+    baseline_device_version='',
+    baseline_dongle_version='',
+    target_device_version='',
+    target_dongle_version='',
+    repeats=3,
+    dongle_address='',
+)
+
+
+"""
+    Zone Vibe Wireless
+    baseline_device_version='1.3.0',
+    baseline_dongle_version='2.7.0',
+    target_device_version='1.4.0',
+    target_dongle_version='2.8.0',
+    dongle_address='046D_0AF0_2207MH01ECL86EE13A6D3744',
+"""
+zone_vibe_wireless = Device(
+    device_name='Zone Vibe Wireless',
+    ota_api_product_name='ZoneVibeWireless',
+    baseline_device_version='',
+    baseline_dongle_version='',
+    target_device_version='',
+    target_dongle_version='',
+    repeats=3,
+    dongle_address='',
+)
+
+
+"""
+    Zone Wired
+    baseline_device_version='1.28',
+    target_device_version='1.36',
+"""
+zone_wired = Device(
+    device_name='Zone Wired',
+    ota_api_product_name='ZoneWired',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone Wired Earbuds
+    baseline_device_version='1.40.0',
+    target_device_version='1.41.0',
+"""
+zone_wired_earbuds = Device(
+    device_name='Zone Wired Earbuds',
+    ota_api_product_name='Tetris',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone Wireless
+    baseline_device_version='1.74.0',
+    baseline_dongle_version='1.74.0',
+    target_device_version='1.86.1',
+    target_dongle_version='1.86.1',
+"""
+zone_wireless = Device(
+    device_name='Zone Wireless',
+    ota_api_product_name='ZoneWireless',
+    baseline_device_version='',
+    baseline_dongle_version='',
+    target_device_version='',
+    target_dongle_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone Wireless 2
+    baseline_device_version='1.3.26',
+    baseline_tahiti_version='4.24.4.45',
+    baseline_dongle_version='1.80.1',
+    target_device_version='1.3.124',
+    target_tahiti_version='4.24.4.48',
+    target_dongle_version='4.80.1',
+"""
+zone_wireless_2 = Device(
+    device_name='Zone Wireless 2',
+    ota_api_product_name='Cybermorph',
+    baseline_device_version='',
+    baseline_tahiti_version='',
+    baseline_dongle_version='',
+    target_device_version='',
+    target_tahiti_version='',
+    target_dongle_version='',
+    repeats=3,
+)
+
+
+"""
+    Zone Wireless Plus
+    baseline_device_version='1.86.1',
+    baseline_dongle_version='1.86.1',
+    target_device_version='1.87.0',
+    target_dongle_version='1.87.3',
+"""
+zone_wireless_plus = Device(
+    device_name='Zone Wireless',
+    ota_api_product_name='ZoneWirelessPlus',
+    baseline_device_version='',
+    baseline_dongle_version='',
+    target_device_version='',
+    target_dongle_version='',
+    repeats=3,
+)
+
+"""
+    Zone 300
+    baseline_device_version='',
+    target_device_version='',
+"""
+zone_300 = Device(
+    device_name='Zone 300',
+    ota_api_product_name='Zone300',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+"""
+    Zone 305
+    baseline_device_version='',
+    target_device_version='',
+"""
+zone_305 = Device(
+    device_name='Zone 305',
+    ota_api_product_name='Zone305',
+    baseline_device_version='',
+    target_device_version='',
+    repeats=3,
+)
+
+language_update = LanguageUpdate(
+    device_name='Zone Wireless',
+    repeats=3,
+    languages=[
+        Languages.french,
+        Languages.german,
+        Languages.portuguese,
+    ]
+)

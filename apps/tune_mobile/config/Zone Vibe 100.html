@@ -1,0 +1,75 @@
+<!-- 
+***********************************************************************
+*** This script will help to display the captured image				***
+*** in a browser for subjective comparison.							***
+*** When images are captured ensure to:								***
+***    place them all in a folder based on the Language number.		***
+***    all the images in the folder needs to be named appropriately ***
+***    e.g. Equalizer, DeviceNmae									***
+***********************************************************************
+//-->
+
+<HTML>
+<HEAD>
+<TITLE>LogiTune Mobile App</TITLE>
+</HEAD>
+<STYLE>
+h1 {text-align:center}
+h3 {font-size:120%; text-align:center}
+</STYLE>
+<BODY>
+<br>
+<br>
+<!-- 
+***********************************************
+*** Change the Heading in the "h1" section. ***
+***********************************************
+//-->
+<h1>LogiTune Mobile App - Zone Vibe 100 Screenshots</h1>
+<br>
+<br>
+<SCRIPT Language="JavaScript">
+
+<!-- ***************************************************************
+<!-- Change the list in columnNames to get right Column Heading. ***
+<!-- ***************************************************************
+var columnNames = ['Screen', 'English', 'French', 'German', 'Italian', 'Portuguese', 'Spanish']
+var cn_length = columnNames.length
+
+<!-- ****************************************************************
+<!-- Change the list in left Column Value what it represents.     ***
+<!-- List all the values and it will create equal number of rows. ***
+<!-- ****************************************************************
+var leftColumnValue = ['NoDevicesConnected', 'NoDevicesSettings', 'Home', 'Equalizer', 'DeviceName',  'ConnectedDevices', 'SleepSettings', 'Sidetone', 'HeadsetLanguage', 'Settings']
+var lcv_length = leftColumnValue.length
+
+<!-- ***************************************************************
+<!-- Change the image extension here e.g. .jpg, .png, .bmp.      ***
+<!-- ***************************************************************
+var imageExtension = '.jpg'
+
+
+<!-- Creating table      ***
+
+document.write('<table border="1" cellspacing="1" cellpadding="5">')
+
+document.write('<tr>')
+for (var cn = 0; cn < cn_length; ++cn) {
+	document.write('<td><h3>' + columnNames[cn] + '</h3></td>')
+	}
+document.write('</tr>')
+   
+for (var lcv = 0; lcv < lcv_length; ++lcv) {
+	document.write('<tr>')
+	document.write('<td>' + leftColumnValue[lcv] +' </td>')
+	for (var cn = 1; cn < cn_length; ++cn) {
+		document.write('<td><img style="width: 280px;" src="./Zone Vibe 100' + columnNames[cn] + '/' + leftColumnValue[lcv] + imageExtension + '"></td>')
+		}
+	document.write('</tr>')	
+	}
+document.write('</table>')	
+
+//-->
+</SCRIPT>
+</BODY>
+</HTML>

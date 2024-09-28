@@ -1,0 +1,118 @@
+{
+	"futen": {
+		"current": "staging-qa",
+		"available": [
+		  {
+			"name": "prod",
+			"description": "Prod Sync Portal",
+			"url": "https://updates.vc.logitech.com/api/files/manifest/sync/latest",
+			"checkInterval": 3600,
+			"channel": "default"
+		  },
+		  {
+			"name": "staging-default",
+			"description": "Staging OTA Server",
+			"url": "https://updates-staging.vc.logitech.com/api/files/manifest/sync/latest",
+			"checkInterval": 3600,
+			"channel": "default"
+		  },
+		  {
+			"name": "staging-qa",
+			"description": "Staging OTA Server",
+			"url": "https://updates-staging1.vc.logitech.com/api/files/manifest/sync/latest",
+			"checkInterval": 3600,
+			"channel": "qa"
+		  }
+		]
+	},
+	"futen-fwota": {
+		"current": "staging-qa",
+		"available": [
+		  {
+			"name": "beta-default",
+			"description": "Beta OTA Server",
+			"url": "https://updates-beta.vc.logitech.com",
+			"channel": "default"
+		  },
+		  {
+			"name": "beta-dev",
+			"description": "Beta OTA Server",
+			"url": "https://updates-beta.vc.logitech.com",
+			"channel": "dev"
+		  },
+		  {
+			"name": "beta-qa",
+			"description": "Beta OTA Server",
+			"url": "https://updates-beta.vc.logitech.com",
+			"channel": "qa"
+		  },
+		  {
+			"name": "prod-dev",
+			"description": "Prod OTA Server",
+			"url": "https://updates.vc.logitech.com",
+			"checkInterval": 3600,
+			"channel": "dev"
+		  },
+		  {
+			"name": "prod-qa",
+			"description": "Prod OTA Server",
+			"url": "https://updates.vc.logitech.com",
+			"checkInterval": 3600,
+			"channel": "qa"
+		  },
+		  {
+			"name": "prod-default",
+			"description": "Prod OTA Server",
+			"url": "https://updates.vc.logitech.com",
+			"checkInterval": 3600,
+			"channel": "default"
+		  },
+		  {
+			"name": "prod-preview",
+			"description": "Prod OTA Server",
+			"url": "https://updates.vc.logitech.com",
+			"checkInterval": 3600,
+			"channel": "preview"
+		  },
+		  {
+			"name": "prod-factory",
+			"description": "Prod OTA Server",
+			"url": "https://updates.vc.logitech.com",
+			"checkInterval": 3600,
+			"channel": "factory"
+		  },
+		  {
+			"name": "prod-untested",
+			"description": "Prod OTA Server",
+			"url": "https://updates.vc.logitech.com",
+			"checkInterval": 3600,
+			"channel": "untested"
+		  },
+		  {
+			"name": "prod-stable",
+			"description": "Prod OTA Server",
+			"url": "https://updates.vc.logitech.com",
+			"checkInterval": 3600,
+			"channel": "stable"
+		  },
+		  {
+			"name":"staging-dev",
+			"description":"Staging dev channel",
+			"channel":"dev",
+			"url":"https://updates-staging.vc.logitech.com"
+		 },
+		 { 
+			"name": "staging-qa", 
+			"description": "Staging QA OTA Server", 
+			"url": "https://updates-staging.vc.logitech.com", 
+			"channel": "qa" 
+		 },
+		 {
+			"name":"beta-catdvt",
+			"description":"Beta cat dv channel",
+			"channel":"cat-dvt",
+			"url":"https://updates-beta.vc.logitech.com"
+		 }			 
+		]
+	}
+}

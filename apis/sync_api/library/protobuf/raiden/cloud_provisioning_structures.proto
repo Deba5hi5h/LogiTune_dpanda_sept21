@@ -1,0 +1,181 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Data structures used for provisioning and deprovisioning.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 5 March 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+option java_package = "com.logitech.vc.raiden.proto.provisioning.messages";
+
+
+/**
+ * Data structure containing provisioning data provided by the 
+ * cloud.
+ */
+message LRProvisioningData {
+
+	// ----------------------------------------------------
+	// 01 - 99 reserved for MQTT connection settings.
+	// ----------------------------------------------------
+	/**
+	 * (REQUIRED) Unique device ID.
+	 */
+	string client_id = 1;
+
+	/**
+	 * (REQUIRED) Root CA certificate in PEM format.
+	 */
+	string root_cert = 2;
+
+	/**
+	 * (REQUIRED) Public key certificate in PEM format.
+	 */
+	string client_cert = 3;
+
+	/**
+	 * (REQUIRED) Private key in PEM format.
+	 */
+	string private_key = 4;
+
+	/**
+	 * (REQUIRED) MQTT broker address.
+	 */
+	string mqtt_endpoint = 5;
+
+	/**
+	 * (REQUIRED) MQTT port number.
+	 */
+	uint32 mqtt_port = 6;
+
+	/**
+	 * (REQUIRED) HTTPS port number for MQTT.
+	 */
+	uint32 https_port = 7;
+
+	/**
+	 * (REQUIRED) TLS handshake timeout in milliseconds.
+	 */
+	uint64 tls_handshake_timeout_ms = 8;
+
+	/**
+	 * (REQUIRED) TLS read timeout in milliseconds.
+	 */
+	uint64 tls_read_timeout_ms = 9;
+
+	/**
+	 * (REQUIRED) TLS write timeout in milliseconds.
+	 */
+	uint64 tls_write_timeout_ms = 10;
+
+	/**
+	 * TODO: Fill out description.
+	 */
+	bool is_clean_session = 11;
+
+	/**
+	 * (REQUIRED) MQTT command timeout in milliseconds.
+	 */
+	uint64 mqtt_command_timeout_ms = 12;
+
+	/**
+	 * (REQUIRED) Keep alive interval in seconds.
+	 */
+	uint32 keep_alive_interval = 13;
+
+	/**
+	 * (REQUIRED) Minimum reconnect interval in seconds.
+	 */
+	uint32 min_reconnect_interval = 14;
+
+	/**
+	 * (REQUIRED) Maximum reconnect interval in seconds.
+	 */
+	uint32 max_reconnect_interval = 15;
+
+	/**
+	 * (REQUIRED) Maximum number of ACK’s to wait for.
+	 */
+	uint32 max_acks_to_wait_for = 16;
+
+	/**
+	 * (REQUIRED) Number of actions to process per second.
+	 */
+	uint32 action_processing_rate = 17;
+
+	/**
+	 * (REQUIRED) Maximum outgoing action queue length.
+	 */
+	uint32 max_outgoing_action_queue_length = 18;
+
+	/**
+	 * (REQUIRED) Discover action timeout in milliseconds.
+	 */
+	uint64 discover_action_timeout_ms = 19;
+
+	/**
+	 * (REQUIRED) Publish topic for outgoing host messages.
+	 */
+	string host_topic_outgoing = 20;
+
+	/**
+	 * (REQUIRED) Subscribe topic for incoming host messages.
+	 */
+	string host_topic_incoming = 21;
+
+	/**
+	 * (REQUIRED) Publish topic for outgoing hosted device 
+	 * messages.
+	 */
+	string device_topic_outgoing = 22;
+
+	/**
+	 * (REQUIRED) Subscribe topic for incoming hosted device 
+	 * messages
+	 */
+	string device_topic_incoming = 23;
+
+	// ----------------------------------------------------
+	// 100 - 109 reserved for room information.
+	// ----------------------------------------------------
+	/**
+	 * (REQUIRED) Room name provided by the cloud.
+	 */
+	string room_name = 100;
+
+	/**
+	 * (REQUIRED) ID of the room provided by the cloud.
+	 */
+	string room_id = 101;
+
+	// ----------------------------------------------------
+	// 110 - 119 reserved for org information.
+	// ----------------------------------------------------
+	/**
+	 * (REQUIRED) Organization name provided by the cloud.
+	 */
+	string organization_name = 110;
+
+	/**
+	 * (REQUIRED) ID of the organization provided by the cloud.
+	 */
+	string organization_id = 111;
+}

@@ -1,0 +1,243 @@
+'''
+Copy this file and change its extension from .TEMPLATE to .py
+'''
+
+from dataclasses import dataclass
+from typing import List, Optional
+
+from testsuite_firmware_api_tests.api_tests.device_api_names import DeviceName
+
+
+@dataclass
+class ApiParameters:
+    name: str
+    serial_number: str
+    firmware_version: str
+    model_id: str
+    secondary_serial_number: Optional[str] = None
+    dongle_firmware_version: Optional[str] = None
+    receiver_name: Optional[str] = None
+    dongle_bt_address: Optional[List[int]] = None
+    earbud_color: Optional[str] = None
+    headset_bt_address: Optional[str] = None
+
+
+logi_dock_api = ApiParameters(
+    name=DeviceName.logi_dock,
+    serial_number='',
+    firmware_version='',
+    model_id='17',
+)
+
+""" Example:
+
+zone_true_wireless_api = ApiParameters(
+    name=DeviceName.zone_true_wireless,
+    serial_number="2201SDW00TQ8",
+    firmware_version='5.8.0.0',
+    secondary_serial_number='2201SDV007L8',
+    dongle_firmware_version='1.87.0.0',
+    dongle_bt_address=[0x44, 0x73, 0xd6, 0xab, 0x11, 0xfd],
+    receiver_name='Zone True Wireless Dongle',
+    earbud_color='GRAPHITE',
+    model_id='10',
+)
+
+"""
+
+zone_true_wireless_api = ApiParameters(
+    name=DeviceName.zone_true_wireless,
+    serial_number="",
+    firmware_version='',
+    secondary_serial_number='',
+    dongle_firmware_version='',
+    dongle_bt_address=[],
+    receiver_name='Zone True Wireless Dongle',
+    earbud_color='GRAPHITE',
+    model_id='10',
+)
+
+zone_wireless_2_api = ApiParameters(
+    name=DeviceName.zone_wireless_2,
+    serial_number="2021ML006MA8",
+    firmware_version='1.3.0.3',
+    dongle_firmware_version='',
+    dongle_bt_address=[0x44, 0x73, 0xd6, 0xab, 0x11, 0xfd],
+    receiver_name='Cybermorph Dongle',
+    earbud_color='OFF-WHITE',
+    model_id='1f',
+)
+
+zone_950_api = ApiParameters(
+    name=DeviceName.zone_950,
+    serial_number="2021ML006MA8",
+    firmware_version='1.3.0.3',
+    dongle_firmware_version='',
+    dongle_bt_address=[0x44, 0x73, 0xd6, 0xab, 0x11, 0xfd],
+    receiver_name='Cybermorph Dongle',
+    earbud_color='OFF-WHITE',
+    model_id='28',
+)
+
+zone_vibe_100_api = ApiParameters(
+    name=DeviceName.zone_vibe_100,
+    serial_number='',
+    firmware_version='',
+    model_id='21',
+)
+
+zone_vibe_125_api = ApiParameters(
+    name=DeviceName.zone_vibe_125,
+    serial_number='',
+    firmware_version='',
+    dongle_firmware_version='',
+    dongle_bt_address=[],
+    receiver_name='Zone Vibe 125 Receiver',
+    model_id='19',
+    headset_bt_address='',
+)
+
+zone_vibe_130_api = ApiParameters(
+    name=DeviceName.zone_vibe_130,
+    serial_number='',
+    firmware_version='',
+    dongle_firmware_version='',
+    dongle_bt_address=[],
+    receiver_name='Zone Vibe 130 Receiver',
+    model_id='23',
+    headset_bt_address='',
+)
+
+zone_vibe_wireless_api = ApiParameters(
+    name=DeviceName.zone_vibe_wireless,
+    serial_number='',
+    firmware_version='',
+    dongle_firmware_version='',
+    dongle_bt_address=[],
+    receiver_name='Zone Vibe Wireless Receiver',
+    model_id='22',
+    headset_bt_address='',
+)
+
+zone_wireless_api = ApiParameters(
+    name=DeviceName.zone_wireless,
+    serial_number='',
+    firmware_version='',
+    dongle_firmware_version='',
+    dongle_bt_address=[],
+    receiver_name='Zone Wireless Receiver',
+    model_id='',
+    headset_bt_address='',
+
+)
+
+zone_wireless_plus_api = ApiParameters(
+    name=DeviceName.zone_wireless_plus,
+    serial_number='',
+    firmware_version='',
+    dongle_firmware_version='',
+    dongle_bt_address=[],
+    receiver_name='Zone Wireless Plus Receiver',
+    model_id='0e',
+)
+
+zone_900_api = ApiParameters(
+    name=DeviceName.zone_900,
+    serial_number='',
+    firmware_version='',
+    dongle_firmware_version='',
+    receiver_name='Zone 900 Receiver',
+    dongle_bt_address=[],
+    model_id='15',
+)
+
+zone_wired_api = ApiParameters(
+    name=DeviceName.zone_wired,
+    serial_number='',
+    firmware_version='',
+    model_id='0f',
+)
+
+zone_750_api = ApiParameters(
+    name=DeviceName.zone_750,
+    serial_number='',
+    firmware_version='',
+    model_id='',
+)
+
+zone_wired_earbuds_api = ApiParameters(
+    name=DeviceName.zone_wired_earbuds,
+    serial_number='',
+    firmware_version='',
+    model_id='',
+)
+
+zone_300_api = ApiParameters(
+    name=DeviceName.zone_300,
+    serial_number='',
+    firmware_version='',
+    model_id='2d',
+    headset_bt_address='',
+)
+
+quadrun_wo_headset = ApiParameters(
+    name=DeviceName.quadrun_wo_headset,
+    serial_number='',
+    firmware_version='',
+    model_id='',
+)
+
+zone_305_api = ApiParameters(
+    name=DeviceName.zone_300,
+    serial_number='',
+    firmware_version='',
+    model_id='35',
+    headset_bt_address='',
+)
+
+bomberman_mono_api = ApiParameters(
+    name=DeviceName.bomberman_mono,
+    serial_number='',
+    firmware_version=',
+    model_id='2f',
+)
+
+bomberman_stereo_api = ApiParameters(
+    name=DeviceName.bomberman_stereo,
+    serial_number='',
+    firmware_version='',
+    model_id='2e',
+)
+
+
+@dataclass
+class ApiAdditionalParameters:
+    com_port: Optional[str]
+    pc_bt_address: Optional[List[int]]
+    pc_bt_address: Optional[List[int]]
+    fake_bt_address: Optional[List[int]]
+    mobile_bt_address: Optional[List[int]]
+    mobile_name: Optional[str]
+
+"""Example:
+Examples for COM_PORT: COM4, /dev/tty.ZoneWirelessPlus-SPPDev, /dev/tty.Zone900-SPPDev, /dev/tty.ZoneTrueWireless-GAIA
+
+local_api_pc_configuration = ApiAdditionalParameters(
+    com_port="COM4",
+    pc_host_name=get_pc_host_name(),
+    pc_bt_address=[0x8C, 0x85, 0x90, 0x84, 0x7B, 0xD9],
+    fake_bt_address=[0x01, 0x23, 0x45, 0x67, 0x89, 0xab],
+    mobile_bt_address=[0xc0, 0xbd, 0xc8, 0x4d, 0x2b, 0x14],
+    mobile_name="Samsung S10+",
+)
+
+"""
+
+local_api_pc_configuration = ApiAdditionalParameters(
+    com_port="COM4",
+    pc_host_name=get_pc_host_name(),
+    pc_bt_address=[],
+    fake_bt_address=[],
+    mobile_bt_address=[],
+    mobile_name="",
+)

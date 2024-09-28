@@ -1,0 +1,145 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Protocol Buffer transport messages. These are messages used
+// for requests, responses, events, and ACK messages. Also
+// includes the metadata that is included with these transport
+// messages.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 20 February 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+import "transport.proto";
+import "cloud_provisioning_requests.proto";
+import "cloud_provisioning_events.proto";
+import "cloud_device_events.proto";
+import "cloud_device_requests.proto";
+
+option java_package = "com.logitech.vc.raiden.proto.messages";
+
+
+/**
+ * Root message for all Raiden-related messages that are passed
+ * between the middleware and proxy.
+ */
+message LogiRaidenMessage {
+
+	/**
+	 * Enumeration of sources indicating where the message came
+	 * from.
+	 */
+	enum Source {
+
+		/**
+		 * No applicable source. This should be used for events.
+		 */
+		UNAVAILABLE = 0;
+
+		/**
+		 * Client source including the Sync UI.
+		 */
+		CLIENT = 1;
+
+		/**
+		 * Proxy server source.
+		 */
+		PROXY = 2;
+	}
+
+	/**
+	 * (REQUIRED) Header for this message. Contains timestamp
+	 * information and other data that may be relevant for 
+	 * processing.
+	 */
+	Header header = 1;
+
+	/**
+	 * (REQUIRED) Source of the message. Can either be the UI
+	 * client or proxy server for now.
+	 */
+	Source source = 2;
+
+	/**
+	 * (REQUIRED) For now, this must be set to 1 to allow the
+	 * protocol buffer message parser to know if it is a normal
+	 * Sync message or Raiden message.
+	 */
+	int32 internal_api_id = 3;
+
+	/**
+	 * (REQUIRED) Either a request, response, or event message.
+	 */
+	oneof payload {
+		LRRequest request = 4;
+		LRResponse response = 5;
+		LREvent event = 6;
+	}
+}
+
+/**
+ * Container message for any requests.
+ */
+message LRRequest {
+
+	/**
+	 * (REQUIRED) Message payload.
+	 */
+	oneof payload {
+		LRProvisionHostRequest provision_host_request = 1;
+		LRDeprovisionHostRequest deprovision_host_request = 2;
+		LRGetProvisioningDataRequest get_provisioning_data_request = 3;
+		LRSetCloudConnectionStateRequest set_cloud_connection_state_request = 4;
+		LRCheckForProductUpdateRequest check_for_product_update_request = 5;
+	}
+}
+
+/**
+ * Container message for any responses.
+ */
+message LRResponse {
+
+	/**
+	 * (REQUIRED) Message payload.
+	 */
+	oneof payload {
+		LRProvisionHostResponse provision_host_response = 1;
+		LRDeprovisionHostResponse deprovision_host_response = 2;
+		LRGetProvisioningDataResponse get_provisioning_data_response = 3;
+		LRSetCloudConnectionStateResponse set_cloud_connection_state_response = 4;
+		LRCheckForProductUpdateResponse check_for_product_update_response = 5;
+	}
+}
+
+/**
+ * Container message for any events.
+ */
+message LREvent {
+
+	/**
+	 * (REQUIRED) Message payload.
+	 */
+	oneof payload {
+		LRProvisioningDataAvailableEvent provisioning_data_available_event = 1;
+		LRProductUpdatedEvent product_updated_event = 2;
+	}
+}
+
+

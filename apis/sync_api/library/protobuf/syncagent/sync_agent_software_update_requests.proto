@@ -1,0 +1,68 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Request messages that are sent by the proxy server to the
+// AppHandler.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 1 April 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+option java_package = "com.logitech.vc.syncagent.proto.messages";
+
+import "common.proto";
+import "sync_agent_software_update_structures.proto";
+
+
+/**
+ * Message requesting a software update report from the app 
+ * handler. This will be sent by the proxy when necessary so
+ * that it can update Raiden.
+ *
+ * EXPECTED RESPONSE
+ * LSAGetSoftwareUpdateReportResponse
+ */
+message LSAGetSoftwareUpdateReportRequest {
+
+	/**
+	 * RESERVED FOR FUTURE USE.
+	 */
+	bool reserved = 1;
+}
+
+/**
+ * Response message for LSAGetSoftwareUpdateReportRequest. If a
+ * report could not be generated, then the errors field will be
+ * populated.
+ */
+message LSAGetSoftwareUpdateReportResponse {
+
+	/**
+     * (OPTIONAL) If any errors occurred while processing the
+     * request, then this field should be set accordingly.
+     */
+	repeated Error errors = 1;
+
+	/**
+	 * (REQUIRED) Report describing the current state of the
+	 * Sync software.
+	 */
+	LSASoftwareUpdateReport report = 2;
+}

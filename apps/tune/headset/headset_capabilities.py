@@ -1,0 +1,173 @@
+headset_ui_capabilities = {
+    'zone_300': {
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'device_name': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True
+    },
+    'zone_301': {
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'device_name': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True
+    },
+    'zone_305': {
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'device_name': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True
+    },
+    'zone_750': {
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True
+    },
+    'zone_900': {
+        'noise_cancellation_switch': True,
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'device_name': True,
+        'single_press': True,
+        'double_press': True,
+        'long_press': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True,
+        'connection_priority': True
+    },
+    'zone_vibe_125': {
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'device_name': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True
+    },
+    'zone_vibe_130': {
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'device_name': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True
+    },
+    'zone_vibe_wireless': {
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'device_name': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True
+    },
+    'zone_wired': {
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True
+    },
+    'zone_wired_earbuds': {
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'voice_prompts_switch': True
+    },
+    'zone_wireless': {
+        'noise_cancellation_switch': True,
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'device_name': True,
+        'single_press': True,
+        'double_press': True,
+        'long_press': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True,
+        'connection_priority': True
+    },
+    'zone_wireless_2': {
+        'noise_cancellation_select': False,
+        'sidetone': True,
+        'mic_level': True,
+        'advanced_call_clarity': True,
+        'equalizer': True,
+        'anti_startle_protection': True,
+        'noise_exposure_control': True,
+        'device_name': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'transparency': True,
+        'none': True,
+        'noise_cancellation_low': True,
+        'noise_cancellation_high': True,
+        'auto_mute': True,
+        'auto_answer': True,
+        'auto_pause': True,
+        'touch_pad': True,
+        'voice_prompts_select': True
+    },
+    'zone_wireless_plus': {
+        'noise_cancellation_switch': True,
+        'sidetone': True,
+        'mic_level': True,
+        'equalizer': True,
+        'device_name': True,
+        'single_press': True,
+        'double_press': True,
+        'long_press': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'voice_prompts_switch': True,
+        'connection_priority': True
+    },
+    'zone_950': {
+        'noise_cancellation_select': False,
+        'sidetone': True,
+        'mic_level': True,
+        'advanced_call_clarity': True,
+        'equalizer': True,
+        'anti_startle_protection': True,
+        'noise_exposure_control': True,
+        'device_name': True,
+        'sleep_settings': True,
+        'rotate_to_mute': True,
+        'transparency': True,
+        'none': True,
+        'noise_cancellation_low': True,
+        'noise_cancellation_high': True,
+        'auto_mute': True,
+        'auto_answer': True,
+        'auto_pause': True,
+        'touch_pad': True,
+        'voice_prompts_select': True
+    },
+    'h570e_mono': {
+        'sidetone': True,
+        'mic_level': True,
+        'voice_prompts_switch': True,
+        'dashboard_anti_startle_protection': True,
+    },
+    'h570e_stereo': {
+        'sidetone': True,
+        'mic_level': True,
+        'voice_prompts_switch': True,
+        'dashboard_anti_startle_protection': True,
+    },
+
+}

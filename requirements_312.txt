@@ -1,0 +1,50 @@
+# Please add packages in alpabethical order (A - Z)
+
+aiohttp==3.9.3
+algoliasearch==3.0.0
+Appium-Python-Client==3.2.1
+argparse==1.4.0
+black==24.2.0
+boto3==1.34.56
+botocore==1.34.56
+brainstem==2.10.4
+configparser==6.0.1
+datefinder==0.7.3
+deepdiff==6.7.1
+dlipower==1.0.176
+google-api-python-client==2.121.0
+google-auth-httplib2==0.2.0
+google-auth-oauthlib==1.2.0
+hidapi==0.14.0
+ImageHash==4.3.1
+imutils==0.5.4
+JPype1==1.5.0
+opencv-python==4.9.0.80
+pandas==2.2.1
+parameterized==0.9.0
+paramiko==3.4.0
+pillow==10.2.0
+protobuf==4.25.3
+psutil==5.9.8
+pure-python-adb==0.3.0.dev0
+py-cpuinfo==9.0.0
+PyAutoGUI==0.9.54
+pygame==2.5.2; platform_system=="Windows"
+PyGetWindow==0.0.9
+pygsheets==2.0.6
+pypdfium2==4.27.0
+pylint==3.1.0
+pyserial==3.5
+pytesseract==0.3.10
+pywin32==306; platform_system=="Windows"
+requests==2.31.0
+git+https://github.com/PatrykTokarczyk/screen_recorder_sdk.git#egg=screen_recorder_sdk&subdirectory=python; platform_system=="Windows"
+selenium==4.18.1
+setuptools==69.1.0
+screeninfo==0.8.1
+tzlocal==5.2
+uiautomation==2.0.18
+webdriver-manager==4.0.2
+wget==3.2
+winapps==0.2.0; platform_system=="Windows"
+winsdk==1.0.0b10; platform_system=="Windows"

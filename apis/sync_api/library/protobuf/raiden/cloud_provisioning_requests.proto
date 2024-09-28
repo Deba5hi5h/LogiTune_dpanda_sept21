@@ -1,0 +1,199 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Request and response messages for provisioning and
+// deprovisioning the host machine via the middleware and proxy.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 5 March 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+import "cloud_provisioning_structures.proto";
+import "common.proto";
+import "configuration_structures.proto";
+
+option java_package = "com.logitech.vc.raiden.proto.provisioning.messages";
+
+
+/**
+ * Message requesting that the middleware be provisioned by
+ * giving it provisioning data from the cloud that contains
+ * various settings. This includes the settings needed to 
+ * establish an MQTT connection to the cloud.
+ *
+ * EXPECTED RESPONSE
+ * LRProvisionHostResponse
+ */
+message LRProvisionHostRequest {
+
+	/**
+	 * (REQUIRED) Provisioning data provided by the cloud.
+	 */
+	LRProvisioningData provisioning_data = 1;
+}
+
+/**
+ * Response message for LRProvisionHostRequest. If an error 
+ * occurred that prevented the host from being provisioned, then
+ * the errors field will be populated and success will be set
+ * to false.
+ */
+message LRProvisionHostResponse {
+
+	/**
+     * (OPTIONAL) If any errors occurred while processing the
+     * request, then this field should be set accordingly.
+     */
+	repeated Error errors = 1;
+
+	/**
+	 * (REQUIRED) True if the middleware has done the necessary
+	 * steps to be provisioned. This may be true even if an error
+	 * has occurred.
+	 */
+	bool success = 2;
+}
+
+/**
+ * Message requesting that the middleware be deprovisioned by
+ * removing any stored provisioning data and to indicate that
+ * the proxy should terminate its MQTT connection to the cloud.
+ *
+ * EXPECTED RESPONSE
+ * LRDeProvisionHostResponse
+ */
+message LRDeprovisionHostRequest {
+
+	/**
+	 * (RESERVED) Reserved for future use.
+	 */
+	bool reserved = 1;
+}
+
+/**
+ * Response message for LRDeprovisionHostRequest. If an error 
+ * occurred that prevented the host from being deprovisioned, then
+ * the errors field will be populated and success will be set
+ * to false.
+ */
+message LRDeprovisionHostResponse {
+
+	/**
+     * (OPTIONAL) If any errors occurred while processing the
+     * request, then this field should be set accordingly.
+     */
+	repeated Error errors = 1;
+
+	/**
+	 * (REQUIRED) True if the middleware has done the necessary
+	 * steps to be deprovisioned. This may be true even if an 
+	 * error has occurred.
+	 */
+	bool success = 2;
+}
+
+/**
+ * Message requesting the middleware to return any provisioning data
+ * that it has stored. This also includes flags indicating if the
+ * host is provisioned and if the proxy currently has an open MQTT
+ * connection.
+ *
+ * EXPECTED RESPONSE
+ * LRGetProvisioningDataResponse
+ */
+message LRGetProvisioningDataRequest {
+
+	/**
+	 * (RESERVED) Reserved for future use.
+	 */
+	bool reserved = 1;
+}
+
+/**
+ * Response message for LRGetProvisioningDataRequest. Contains the
+ * provisioning data that was given to the middleware by the cloud 
+ * via the UI during provisioning. This response also includes flags
+ * indicating if the host is provisioned and if the proxy currently
+ * has an open MQTT connection.
+ */
+message LRGetProvisioningDataResponse {
+
+	/**
+     * (OPTIONAL) If any errors occurred while processing the
+     * request, then this field should be set accordingly.
+     */
+	repeated Error errors = 1;
+
+	/**
+	 * (REQUIRED) True if the host is currently provisioned.
+	 */
+	bool is_provisioned = 2;
+
+	/**
+	 * (REQUIRED) True if the proxy currently has an open MQTT
+	 * connection.
+	 */
+	bool is_connected_to_cloud = 3;
+
+	/**
+	 * (OPTIONAL) If provisioned, this MUST contain the provisioning
+	 * data if available.
+	 */
+	LRProvisioningData provisioning_data = 4;
+}
+
+/**
+ * Request for the middleware to set the current connection state
+ * of the proxy to the cloud. Additional data may be provided in 
+ * the future.
+ *
+ * This request should be sent out anytime the connection state
+ * has changed (i.e, connected or disconnected).
+ *
+ * EXPECTED RESPONSE
+ * LRSetConnectionStateResponse
+ */
+message LRSetCloudConnectionStateRequest {
+
+	/**
+	 * (REQUIRED) Whether or not the proxy is currently connected
+	 * to the cloud via MQTT.
+	 */
+	bool is_connected_to_cloud = 1;
+}
+
+/**
+ * Response for LRSetCloudConnectionStateRequest. This will contain
+ * the host information which will then be forwarded to the cloud. 
+ * Additional data may be added in the future.
+ */
+message LRSetCloudConnectionStateResponse {
+
+	/**
+     * (OPTIONAL) If any errors occurred while processing the
+     * request, then this field should be set accordingly.
+     */
+	repeated Error errors = 1;
+
+	/**
+	 * (REQUIRED) Information about the host.
+	 */
+	HostInformation host_information = 2;
+}

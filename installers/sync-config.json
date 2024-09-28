@@ -1,0 +1,218 @@
+{
+  "futen": {
+    "current": "futen-staging-dev",
+    "available": [
+      {
+        "name": "futen-stable",
+        "description": "Stable OTA Server",
+        "url": "https://updates-stable.dev.vc.logitech.com/api/files/manifest/sync/latest",
+        "checkInterval": 3600,
+        "channel": "beta"
+      },
+      {
+        "name": "futen-staging",
+        "description": "Staging OTA Server",
+        "url": "https://updates-staging.dev.vc.logitech.com/api/files/manifest/sync/latest",
+        "checkInterval": 3600
+      },
+      {
+        "name": "futen-staging-eestrada",
+        "description": "Staging OTA Server",
+        "url": "https://updates-staging.vc.logitech.com/api/files/manifest/sync/latest",
+		"channel": "eestrada"
+      },
+      {
+        "name": "futen-staging-qa",
+        "description": "Staging OTA Server QA channel",
+        "url": "https://updates-staging.vc.logitech.com/api/files/manifest/sync/latest",
+		"channel": "qa"
+      },
+      {
+        "name": "futen-staging-dev",
+        "description": "Staging OTA Server DEV channel",
+        "url": "https://updates-staging.vc.logitech.com/api/files/manifest/sync/latest",
+		"channel": "dev"
+      }
+    ]
+  },
+  "raiden": {
+    "current": "raiden-prod",
+    "available": [
+       {
+           "name": "raiden-stable",
+           "description": "Stable raiden backend",
+           "url": "https://raiden-stable.dev.vc.logitech.com/api",
+           "cognito": {
+               "region": "us-west-2",
+               "userPoolId": "us-west-2_wUNV5wMZw",
+               "clientId": "29tg0rt8rmnvdj9d70s18h9pn5"
+           }
+       },
+      {
+		  "name": "raiden-staging",
+		  "description": "Staging Raiden backend",
+		  "url": "https://raiden-staging.vc.logitech.com/api",
+		  "cognito": {
+		    "region": "us-west-2",
+		    "userPoolId": "us-west-2_tevrzkKET",
+		    "clientId": "56fhlivo1k9jdt7fb2s874suui"
+		  }
+      },
+      {
+        "name": "raiden-qa",
+        "description": "QA's raiden backend",
+        "url": "https://raiden-qa.dev.vc.logitech.com/api",
+        "cognito": {
+          "region": "us-west-2",
+          "userPoolId": "us-west-2_PU9A7gd2b",
+          "clientId": "7osur07mtj61527nep694cqiec"
+        }
+      },
+      {
+        "name": "raiden-kong",
+        "description": "Kong's raiden backend",
+        "url": "https://raiden-kong.dev.vc.logitech.com/api",
+        "cognito": {
+          "region": "us-west-2",
+          "userPoolId": "us-west-2_vWQtixYhr",
+          "clientId": "2ei5t0mdvoqurvcp3k8hish6sd"
+        }
+      },
+      {
+        "name": "raiden-latest1",
+        "description": "Latest1 raiden backend",
+        "url": "https://raiden-latest1.test.vc.logitech.com/api",
+        "cognito": {
+          "region": "us-west-2",
+          "userPoolId": "us-west-2_K0KXbX0RV",
+          "clientId": "5f0stsc4h2t96jjq995pqgr237"
+        }
+      },
+      {
+        "name": "raiden-qa1",
+        "description": "QA1's raiden backend",
+        "url": "https://raidenapp-qa1.test.vc.logitech.com/api",
+        "cognito": {
+          "region": "us-west-2",
+          "userPoolId": "us-west-2_t8bSDvmN1",
+          "clientId": "t54v46citripsr8nf88cik68h"
+        }
+      }
+    ]
+  },
+  "futen-fwota": {
+    "current": "futen-prod",
+    "available": [
+      {
+        "name": "futen-staging-dev",
+        "description": "Staging OTA Server",
+        "url": "https://updates-staging.vc.logitech.com",
+        "channel": "dev"
+      },
+	        {
+        "name": "futen-staging-qa",
+        "description": "QA Staging OTA Server",
+        "url": "https://updates-staging.vc.logitech.com",
+        "channel": "qa"
+      },
+      {
+        "name": "futen-staging",
+        "description": "Staging OTA Server",
+        "url": "https://updates-staging.vc.logitech.com"
+      },
+      {
+        "name": "futen-prod-dev2",
+        "description": "Prod",
+        "url": "https://updates.vc.logitech.com",
+        "channel": "dev2"
+      },
+      {
+        "name": "futen-prod-dev",
+        "description": "Prod",
+        "url": "https://updates.vc.logitech.com",
+        "channel": "dev"
+      },
+      {
+        "name": "futen-prod",
+        "description": "Prod",
+        "url": "https://updates.vc.logitech.com"
+      },
+      {
+        "name": "futen-beta",
+        "description": "Beta OTA Server",
+        "url": "https://updates-beta.vc.logitech.com",
+        "channel": "dev"
+      },
+      {
+        "name": "futen-beta-eestrada",
+        "description": "Beta OTA Server",
+        "url": "https://updates-beta.vc.logitech.com",
+        "channel": "eestrada"
+      } ,
+      {
+        "name": "futen-catdvt",
+        "description": "Beta OTA Server",
+        "url": "https://updates-beta.vc.logitech.com",
+        "channel": "cat-dvt"
+      },
+      {
+        "name": "futen-beta-untested",
+        "description": "Beta OTA Server",
+        "url": "https://updates-beta.vc.logitech.com",
+        "channel": "untested"
+      },
+      {
+        "name": "futen-prod-untested",
+        "description": "Prod",
+        "url": "https://updates.vc.logitech.com",
+        "channel": "untested"
+      },
+      {
+        "name": "prajith-default",
+        "description": "Prajith's DEV OTA Server & default Channel",
+        "url": "https://updates-prajith.dev.vc.logitech.com"
+      },
+      {
+              "name": "prajith-dev",
+              "description": "Prajith's DEV OTA Server & dev Channel",
+              "channel":"dev",
+              "url": "https://updates-prajith.dev.vc.logitech.com"
+      },
+      {
+        "name": "futen-prod-qa",
+        "description": "Prod",
+        "url": "https://updates.vc.logitech.com",
+        "channel": "qa"
+      },
+      {
+        "name": "futen-prod-qa2",
+        "description": "Prod",
+        "url": "https://updates.vc.logitech.com",
+        "channel": "qa2"
+      },
+      {
+        "name": "futen-prod-qa3",
+        "description": "Prod",
+        "url": "https://updates.vc.logitech.com",
+        "channel": "qa3"
+      },
+	 {
+		"name":"futen-qa",
+		"description":"LU replacement with Futen for non-kong devices",
+		"url": "https://updates-prajith2.dev.vc.logitech.com",
+		"channel":"qa"
+	 }
+    ]
+  },
+  "futen-bugreports": {
+	"current":"futen-staging-dev",
+	"available":[
+	      {
+        "name": "futen-staging-dev",
+        "description": "Staging Bug report Server",
+        "url": "https://updates-staging.vc.logitech.com",
+        "channel": "dev"
+      }
+	]
+  }
+}

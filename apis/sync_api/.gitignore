@@ -1,0 +1,5 @@
+/device_firmware_utils/files/*.bin
+/device_firmware_utils/files/*.itb
+/device_firmware_utils/files/*.zip
+/device_firmware_utils/files/0UWW*
+/device_firmware_utils/files/SSB_0UWW*

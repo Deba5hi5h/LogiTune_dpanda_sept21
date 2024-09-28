@@ -1,0 +1,109 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Data structures used for reporting the product state to the
+// cloud.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 27 March 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+import "cloud_provisioning_structures.proto";
+import "product_state_structures.proto";
+
+option java_package = "com.logitech.vc.raiden.proto.device.messages";
+
+
+/**
+ * Data structure containing a snapshot of a product to be consumed
+ * by the cloud.
+ */
+message LRProductSnapshot {
+
+	/**
+	 * (REQUIRED) A product that is currently plugged into the host
+	 * machine.
+	 */
+	Product product = 1;
+
+	/**
+     * (REQUIRED) Number of each device that is expected to be 
+     * connected to the product. The values stored here must be
+     * greater than or equal to their counterparts in the actual
+     * device count map. The key is an integer corresponding to the
+     * Device.FormFactor enumeration and the value is the actual
+     * device count.
+     */
+     map<uint32, uint32> expected_device_count = 2;
+
+    /**
+     * (REQUIRED) Number of each device that are actually connected
+     * to the product at this very moment. If the count of a device 
+     * is less than the expected count for that device, then it is
+     * assumed that some of that device are missing or are
+     * non-functional. The key is the integer corresponding to the 
+     * Device.FormFactor enumeration and the value is the actual
+     * device count.
+     */
+     map<uint32, uint32> actual_device_count = 3;
+
+     /**
+     * (REQUIRED) The latest available firmware version from the 
+     * Logitech Update server.
+     */
+     string latest_firmware = 4;
+
+     /**
+      * (REQUIRED) The timestamp (seconds since the epoch) for when
+      * the latest available firmware was published.
+      */
+     string latest_firmware_published_timestamp = 5;
+
+     /**
+     * (OPTIONAL) Update progress for the product if it is currently
+     * updating. Otherwise, this field is omitted.
+     */
+     LRProductUpdateSnapshot update_status = 6;
+}
+
+/**
+ * Data structure containing the update progress for a firmware
+ * update.
+ */
+message LRProductUpdateSnapshot {
+
+     /**
+      * (REQUIRED) Overall percentage progress of the update from
+      * [0, 1].
+      */
+     float percentage_progress = 1;
+
+     /**
+      * (REQUIRED) Time remaininng for the update in seconds.
+      */
+     uint32 time_remaining_seconds = 2;
+
+     /**
+      * (OPTIONAL) If an error occurred, then the code should be
+      * populated here. By default, this will be 0 which indicates
+      * that everything is normal.
+      */
+     uint32 error_code = 3;
+}

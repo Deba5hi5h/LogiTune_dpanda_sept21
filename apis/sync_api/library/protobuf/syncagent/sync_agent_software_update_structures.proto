@@ -1,0 +1,86 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Data structure messages for software update.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 2 April 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+option java_package = "com.logitech.vc.syncagent.proto.messages";
+
+import "common.proto";
+
+
+/**
+ * Data structure which describes the current state of the Sync
+ * software. This includes the current progress if an update (
+ * if applicable), the current software version, the software
+ * version that is available or being updated to, and the status
+ * of the last software update.
+ */
+message LSASoftwareUpdateReport {
+
+	/**
+	 * (REQUIRED) Current state of the software. Can be 
+	 * up-to-date,updating, etc.
+	 */
+	SyncUpdateState update_state = 1;
+
+	/**
+	 * (REQUIRED) Current version of the Sync agent package that
+	 * is installed.
+	 */
+	string current_software_package_version = 2;
+
+	/**
+	 * (OPTIONAL) Version of the new Sync agent package that
+	 * will be/is being installed. If there are no updates 
+	 * available, then this will be empty.
+	 */
+	string target_software_package_version = 3;
+
+	/**
+	 * (OPTIONAL) Status of the last software update that was
+	 * executed. This includes any error messages associated
+	 * with an update failure.
+	 */
+	LSALastSoftwareUpdateStatus last_update_status = 4;
+}
+
+/**
+ * Data structure which has the status of the last software 
+ * update.
+ */
+message LSALastSoftwareUpdateStatus {
+
+	/**
+	 * (REQUIRED) Whether or not the last software update
+	 * attempt failed.
+	 */
+	bool update_failed = 1;
+
+	/**
+	 * (OPTIONAL) If the last software update attempt failed,
+	 * then this should contain errors pertaining to the
+	 * failure.
+	 */
+	repeated Error update_errors = 2;
+}

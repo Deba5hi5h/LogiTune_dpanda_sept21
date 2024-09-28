@@ -1,0 +1,102 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Protocol Buffer transport messages. These are messages used
+// for requests, responses, events, and ACK messages. Also
+// includes the metadata that is included with these transport
+// messages.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 1 April 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+option java_package = "com.logitech.vc.syncagent.proto.messages";
+
+import "transport.proto";
+import "sync_agent_software_update_requests.proto";
+import "sync_agent_software_update_events.proto";
+
+
+/**
+ * Root message for all Sync-related messages tha are passed
+ * between the middleware, app handler, and proxy.
+ */
+message LogiSyncAgentMessage {
+
+	/**
+	 * (REQUIRED) Header for this message. Contains timestamp
+	 * information and other data that may be relevant for 
+	 * processing.
+	 */
+	Header header = 1;
+
+	/**
+	 * (REQUIRED) For now, this must be set to 2 to allow the 
+	 * Protocol Buffer message parser to know what API the
+	 * message belongs to.
+	 */
+	int32 internal_api_id = 2;
+
+	/**
+	 * (REQUIRED) Either a request, response, or event message.
+	 */
+	oneof payload {
+		LSARequest request = 3;
+		LSAEvent event = 4;
+	}
+}
+
+/**
+ * Container message for any requests.
+ */
+message LSARequest {
+
+	/**
+	 * (REQUIRED) Message payload.
+	 */
+	oneof payload {
+		LSAGetSoftwareUpdateReportRequest get_software_update_report_request = 1;
+	}
+}
+
+/**
+ * Container message for any responses.
+ */
+message LSAResponse {
+	/**
+	 * (REQUIRED) Message payload.
+	 */
+	oneof payload {
+		LSAGetSoftwareUpdateReportResponse get_software_update_report_response = 1;
+	}
+}
+
+/**
+ * Container message for any events.
+ */
+message LSAEvent {
+
+	/**
+	 * (REQUIRED) Message payload.
+	 */
+	oneof payload {
+		LSASoftwareUpdateReportEvent software_update_report_event = 1;
+	}
+}

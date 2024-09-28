@@ -1,0 +1,36 @@
+import unittest
+from base import global_variables
+
+from testsuite_raiden_api.personal_devices.host_provisioning.raiden_api_host_provisioning import \
+    RaidenAPI_Host_Provisioning_Personal_Devices
+from testsuite_raiden_api.personal_devices.devices.raiden_api_brio_device import RaidenAPIBrioDevice
+from testsuite_raiden_api.personal_devices.devices.raiden_api_c930e_device import RaidenAPIC930eDevice
+from testsuite_raiden_api.personal_devices.devices.raiden_api_zonewired_device import RaidenAPIZoneWiredDevice
+from testsuite_raiden_api.personal_devices.devices.raiden_api_zonewireless_device import RaidenAPIZoneWirelessDevice
+
+
+tests_RaidenAPI_Host_Provisioning_Personal_Devices = unittest.TestLoader().loadTestsFromTestCase(
+    RaidenAPI_Host_Provisioning_Personal_Devices)
+tests_RaidenAPIBrioDevice = unittest.TestLoader().loadTestsFromTestCase(RaidenAPIBrioDevice)
+tests_RaidenAPIC930eDevice = unittest.TestLoader().loadTestsFromTestCase(RaidenAPIC930eDevice)
+tests_RaidenAPIZoneWiredDevice = unittest.TestLoader().loadTestsFromTestCase(RaidenAPIZoneWiredDevice)
+tests_RaidenAPIZoneWirelessDevice = unittest.TestLoader().loadTestsFromTestCase(RaidenAPIZoneWirelessDevice)
+
+
+suite_RaidenAPI_Host_Provisioning_Personal_Devices = unittest.TestSuite(
+    tests_RaidenAPI_Host_Provisioning_Personal_Devices)
+suite_RaidenAPIBrioDevice = unittest.TestSuite(tests_RaidenAPIBrioDevice)
+suite_RaidenAPIC930eDevice = unittest.TestSuite(tests_RaidenAPIC930eDevice)
+suite_RaidenAPIZoneWiredDevice = unittest.TestSuite(tests_RaidenAPIZoneWiredDevice)
+suite_RaidenAPIZoneWirelessDevice = unittest.TestSuite(tests_RaidenAPIZoneWirelessDevice)
+
+
+global_variables.teardownFlag = False
+unittest.TextTestRunner().run(suite_RaidenAPI_Host_Provisioning_Personal_Devices)
+unittest.TextTestRunner().run(suite_RaidenAPIBrioDevice)
+unittest.TextTestRunner().run(suite_RaidenAPIC930eDevice)
+unittest.TextTestRunner().run(suite_RaidenAPIZoneWiredDevice)
+#Remaining suites here
+global_variables.teardownFlag = True #This should be just before the last suite
+unittest.TextTestRunner().run(suite_RaidenAPIZoneWirelessDevice)
+

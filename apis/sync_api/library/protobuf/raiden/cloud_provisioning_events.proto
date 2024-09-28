@@ -1,0 +1,54 @@
+// Copyright (c) 1999-2019 Logitech, Inc.  All Rights Reserved
+//
+// This program is a trade secret of LOGITECH, and it is not to 
+// be reproduced, published, disclosed to others, copied, 
+// adapted, distributed or displayed without the prior 
+// authorization of LOGITECH.
+//
+// Licensee agrees to attach or embbed this notice on all copies
+// of the program, including partial copies or modified versions 
+// thereof.
+//
+// -------------------------------------------------------------
+// DESCRIPTION
+// -------------------------------------------------------------
+// Event messages associated with provisioning and deprovisioning
+// the host machine via the middleware and proxy.
+//
+// -------------------------------------------------------------
+// DATE CREATED
+// -------------------------------------------------------------
+// 5 March 2019
+//
+
+syntax = "proto3";
+
+package logi.proto;
+
+import "cloud_provisioning_structures.proto";
+
+option java_package = "com.logitech.vc.raiden.proto.provisioning.messages";
+
+
+/**
+ * Event that is broadcast to the proxy by the middleware when it 
+ * has provisioning data available for the proxy to consume. This 
+ * is broadcast when the middleware is started or after it has
+ * successfully processed a LRProvisionHostRequest message.
+ */
+message LRProvisioningDataAvailableEvent {
+	
+	/**
+	 * (REQUIRED) Whether or not the host is currently provisioned.
+	 */
+	bool is_provisioned = 1;
+
+	/**
+	 * (OPTIONAL) Data structure containing the provisioning data
+	 * including the data used to establish a MQTT connection to 
+	 * the cloud.
+	 *
+	 * This MUST be included if the host has been provisioned.
+	 */
+	LRProvisioningData provisioning_data = 2;
+}
